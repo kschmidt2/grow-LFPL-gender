@@ -6,9 +6,9 @@ Highcharts.setOptions({
 
 
 function drawHighcharts() {
-    Highcharts.chart("chart-container-PROJECT-NAME", { // add the proper ID here
+    Highcharts.chart("chart-container-lfpl-gender", { // add the proper ID here
         chart: {
-            type: 'bar',
+            type: 'line',
             styledMode: true,
             spacingBottom: 25,
             spacingRight: 100,
@@ -19,37 +19,37 @@ function drawHighcharts() {
             text: null
         },
         data: {
-            googleSpreadsheetKey: '1YOKb5l2VM4aAB2r20N_1aT_1vEajYrP3U-U3A6lZbC0',
+            googleSpreadsheetKey: '1WAD1fl6qJHddIJn7wJNHX3uDTLd6tgcNI3rrbpD3l8M',
         },
         // for bar charts only
-        plotOptions: {
-            series: {
-                groupPadding: 0.1
-            } 
-        },
-        // for line charts only
         // plotOptions: {
         //     series: {
-        //         lineWidth: 1,
-        //         // clip: false,
-        //         marker: {
-        //             enabled: false,
-        //             symbol: 'circle',
-        //             fillColor: '#ffffff',
-        //             states: {
-        //                 hover: {
-        //                     fillColor: '#ffffff'
-        //                 }
-        //             }
-        //         }
-        //     }
+        //         groupPadding: 0.1
+        //     } 
         // },
+        // for line charts only
+        plotOptions: {
+            series: {
+                lineWidth: 1,
+                // clip: false,
+                marker: {
+                    // enabled: false,
+                    symbol: 'circle',
+                    fillColor: '#ffffff',
+                    states: {
+                        hover: {
+                            fillColor: '#ffffff'
+                        }
+                    }
+                }
+            }
+        },
         legend: {
             align: 'right',
             symbolRadius: 0,
-            verticalAlign: 'top',
+            verticalAlign: 'float',
             x: 10,
-            y: -10,
+            y: 10,
             // enabled: false
         },
         xAxis: {
@@ -74,9 +74,9 @@ function drawHighcharts() {
             //     return Highcharts.numberFormat(this.value,0,'.',',');
             // },
             },
-            // min: ,
-            // max: ,
-            // tickAmount: ,
+            min: -6,
+            max: 0,
+            tickAmount: 4,
             // adds commas to thousands
         },
         credits: {
@@ -85,9 +85,10 @@ function drawHighcharts() {
         tooltip: {
             shadow: false,
             padding: 10,
-            // valueSuffix: '',
+            shared: true,
+            valueSuffix: '%',
             // valuePrefix: '',
-            // valueDecimals: 2,
+            valueDecimals: 2,
         },
         responsive: {
             rules: [{
@@ -99,7 +100,7 @@ function drawHighcharts() {
                 spacingRight: 10
                 },
                 legend: {
-                    align: 'left',
+                    // align: 'left',
                     x: -8
                 },
                 tooltip: {
